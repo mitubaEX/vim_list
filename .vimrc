@@ -4,10 +4,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath^=/Users/nakamurajun/.vim/bundle/neobundle.vim/
+set runtimepath^=/Users/mituba/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/Users/nakamurajun/.vim/bundle'))
+call neobundle#begin(expand('/Users/mituba/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -23,6 +23,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/neocomplcache'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'tyru/caw.vim'
 
 " Required:
 call neobundle#end()
@@ -70,6 +71,9 @@ if &compatible
   nnoremap <C-t> :NERDTreeToggle<CR>
   nnoremap <C-e> :sh<Enter>
   inoremap <C-w> <Esc>:w<Enter>
+  set whichwrap=b,s,<,>,[,],h,l
+  nmap <Leader>c <Plug>(caw:i:toggle)
+  vmap <Leader>c <Plug>(caw:i:toggle)
 
   " 挿入モードでのカーソル移動
   inoremap <C-j> <Down>
@@ -85,7 +89,7 @@ if &compatible
   set autoindent
   set ttymouse=xterm2
   set number
-  set runtimepath^=/Users/nakamurajun/.vim/bundle/neobundle.vim/
+  set runtimepath^=/Users/mituba/.vim/bundle/neobundle.vim/
   set sm
   set ai
   syntax on
