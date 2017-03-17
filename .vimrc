@@ -24,6 +24,7 @@ NeoBundle 'Shougo/neocomplcache'
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'tyru/caw.vim'
+NeoBundle 'vim-scripts/LanguageTool'
 
 " Required:
 call neobundle#end()
@@ -36,6 +37,7 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 autocmd ColorScheme * highlight Visual ctermbg=75
+autocmd ColorScheme * highlight Comment ctermfg=39
 "NeoBundle Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
@@ -68,6 +70,7 @@ if &compatible
   inoremap <Down> <Nop>
   inoremap <Left> <Nop>
   inoremap <Right> <Nop>
+  inoremap <C-s> <Nop>
   nnoremap <C-t> :NERDTreeToggle<CR>
   nnoremap <C-e> :sh<Enter>
   inoremap <C-w> <Esc>:w<Enter>
@@ -81,6 +84,7 @@ if &compatible
   inoremap <C-h> <Left>
   inoremap <C-l> <Right>
   nnoremap <C-w> :w<Enter>
+  nnoremap <C-s> :set spell<Enter>
   " Required:
   set encoding=utf-8
   set fileencoding=utf-8
@@ -142,3 +146,31 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 imap { {}<C-h>
 imap [ []<C-h>
 imap ( ()<C-h>
+" "
+" " Plugin key-mappings.
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+"
+" " SuperTab like snippets behavior.
+" "imap <expr><TAB>
+" " \ pumvisible() ? "\<C-n>" :
+" " \ neosnippet#expandable_or_jumpable() ?
+" " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"
+" " For conceal markers.
+" if has('conceal')
+"     set conceallevel=2 concealcursor=niv
+" endif
+" "Enable snipMate compatibility feature.
+" let g:neosnippet#enable_snipmate_compatibility = 1
+" "
+" " " Tell Neosnippet about the other snippets
+" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"
+let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-commandline.jar'
+" nnoremap [Show] <Nop>
+" nmap <Space>s [Show]
+
