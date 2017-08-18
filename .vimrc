@@ -25,6 +25,18 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'vim-scripts/LanguageTool'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'scrooloose/syntastic.git'
+
+" keynote plugin
+NeoBundle 'zerowidth/vim-copy-as-rtf'
+NeoBundle 'tpope/vim-pathogen'
+NeoBundle 'nsf/gocode'
+
+" Docker
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " Required:
 call neobundle#end()
@@ -61,7 +73,7 @@ if &compatible
   set confirm
   set visualbell
   set t_vb=
-  set cmdheight=2
+  set cmdheight=1
   noremap <Up> <Nop>
   noremap <Down> <Nop>
   noremap <Left> <Nop>
@@ -96,6 +108,7 @@ if &compatible
   set runtimepath^=/Users/mituba/.vim/bundle/neobundle.vim/
   set sm
   set ai
+  set noswapfile
   syntax on
 
 "
