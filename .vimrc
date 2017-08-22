@@ -13,6 +13,8 @@ call neobundle#begin(expand('/Users/mituba/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+
+""""""""""""""""""""""""""NeoBundle plugin"""""""""""""""""""""""""""""""""
 " Add or remove your Bundles here:
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -38,6 +40,8 @@ NeoBundle 'nsf/gocode'
 " Docker
 NeoBundle 'ekalinin/Dockerfile.vim'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Required:
 call neobundle#end()
 
@@ -61,10 +65,6 @@ if &compatible
   set showcmd
   set hlsearch
   set ignorecase
-  """"""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""
-" 自動的に閉じ括弧を入力
-""""""""""""""""""""""""""""""
   set smartcase
   set backspace=indent,eol,start
   set nostartofline
@@ -74,29 +74,10 @@ if &compatible
   set visualbell
   set t_vb=
   set cmdheight=1
-  noremap <Up> <Nop>
-  noremap <Down> <Nop>
-  noremap <Left> <Nop>
-  noremap <Right> <Nop>
-  inoremap <Up> <Nop>
-  inoremap <Down> <Nop>
-  inoremap <Left> <Nop>
-  inoremap <Right> <Nop>
-  inoremap <C-s> <Nop>
-  nnoremap <C-t> :NERDTreeToggle<CR>
-  nnoremap <C-e> :sh<Enter>
-  inoremap <C-w> <Esc>:w<Enter>
   set whichwrap=b,s,<,>,[,],h,l
   nmap <Leader>c <Plug>(caw:i:toggle)
   vmap <Leader>c <Plug>(caw:i:toggle)
 
-  " 挿入モードでのカーソル移動
-  inoremap <C-j> <Down>
-  inoremap <C-k> <Up>
-  inoremap <C-h> <Left>
-  inoremap <C-l> <Right>
-  nnoremap <C-w> :w<Enter>
-  nnoremap <C-s> :set spell<Enter>
   " Required:
   set encoding=utf-8
   set fileencoding=utf-8
@@ -111,11 +92,11 @@ if &compatible
   set noswapfile
   syntax on
 
+
 "
 "
 "  " If there are uninstalled bundles found on startup,
 "  " this will conveniently prompt you to install them.
-  syntax on
   colorscheme molokai
   set t_Co=256
   let g:indent_guides_auto_colors=0
@@ -128,7 +109,6 @@ if &compatible
   set expandtab
 "nnoremap    [Tag]   <Nop>
 "nmap    t [Tag]
-nnoremap <tab> gt
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -146,6 +126,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ }
 
 " Plugin key-mappings.
+"
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -156,34 +137,47 @@ endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-imap { {}<C-h>
-imap [ []<C-h>
-imap ( ()<C-h>
-" "
-" " Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-"
-" " SuperTab like snippets behavior.
-" "imap <expr><TAB>
-" " \ pumvisible() ? "\<C-n>" :
-" " \ neosnippet#expandable_or_jumpable() ?
-" " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"             \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"
-" " For conceal markers.
-" if has('conceal')
-"     set conceallevel=2 concealcursor=niv
-" endif
-" "Enable snipMate compatibility feature.
-" let g:neosnippet#enable_snipmate_compatibility = 1
-" "
-" " " Tell Neosnippet about the other snippets
-" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-"
-let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-commandline.jar'
-" nnoremap [Show] <Nop>
-" nmap <Space>s [Show]
 
+let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-commandline.jar'
+
+" inoremap { {}<Left>
+" inoremap {<Enter> {}<Left><CR><ESC><S-o>
+" inoremap ( ()<ESC>i
+" inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+
+
+""""""""""""""""""""""""""""""""""""""""独自キーバインド"""""""""""""""""""""""
+  noremap <Up> <Nop>
+  noremap <Down> <Nop>
+  noremap <Left> <Nop>
+  noremap <Right> <Nop>
+  inoremap <Up> <Nop>
+  inoremap <Down> <Nop>
+  inoremap <Left> <Nop>
+  inoremap <Right> <Nop>
+  inoremap <C-s> <Nop>
+  nnoremap <C-t> :NERDTreeToggle<CR>
+  nnoremap <C-e> :sh<Enter>
+  inoremap <C-w> <Esc>:w<Enter>
+  " 挿入モードでのカーソル移動
+  inoremap <C-j> <Down>
+  inoremap <C-k> <Up>
+  inoremap <C-h> <Left>
+  inoremap <C-l> <Right>
+  nnoremap <C-w> :w<Enter>
+  " nnoremap <C-s> :set spell<Enter>
+  nnoremap <tab> gt
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-q> <Esc>:wq<Enter>
+  " 縦にsplitする
+  nnoremap <C-s> :split<Enter>
+  " 横にsplitする
+  nnoremap <C-y> :vsplit<Enter>
+  imap { {}<C-h>
+  imap [ []<C-h>
+  imap ( ()<C-h>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
