@@ -27,15 +27,15 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'vim-scripts/LanguageTool'
-NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'scrooloose/syntastic.git'
 
 " keynote plugin
 NeoBundle 'zerowidth/vim-copy-as-rtf'
 NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'nsf/gocode'
+
+NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'rust-lang/rust.vim'
 
 " Docker
 NeoBundle 'ekalinin/Dockerfile.vim'
@@ -144,7 +144,18 @@ let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-comman
 " inoremap {<Enter> {}<Left><CR><ESC><S-o>
 " inoremap ( ()<ESC>i
 " inoremap (<Enter> ()<Left><CR><ESC><S-o>
+"
+" visualモードで選択部分を検索
+vnoremap * "zy:let @/ = @z<CR>n
 
+" 絶対パス表示
+set statusline=%F%m%r%h%w%=\ %{fugitive#statusline()}\ [%{&ff}:%{&fileencoding}]\ [%Y]\ [%04l,%04v]\ [%l/%L]\ %{strftime(\"%Y/%m/%d\ %H:%M:%S\")}
+
+" クリップボード連携
+set clipboard+=unnamed
+
+" 自動cw
+autocmd QuickFixCmdPost *grep* cwindow
 
 
 """"""""""""""""""""""""""""""""""""""""独自キーバインド"""""""""""""""""""""""
@@ -172,7 +183,7 @@ let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-comman
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
   nnoremap <C-h> <C-w>h
-  nnoremap <C-q> <Esc>:wq<Enter>
+  nnoremap <C-q> <Esc>:q<Enter>
   " 縦にsplitする
   nnoremap <C-s> :split<Enter>
   " 横にsplitする
@@ -181,3 +192,4 @@ let g:languagetool_jar='$HOME/.languagetool/LanguageTool-2.1/languagetool-comman
   imap [ []<C-h>
   imap ( ()<C-h>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
