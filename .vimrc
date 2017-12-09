@@ -28,14 +28,24 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'vim-scripts/LanguageTool'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'w0rp/ale'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'maxmellon/vim-jsx-pretty'
+
+" optional
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'othree/es.next.syntax.vim'
 
 " keynote plugin
 NeoBundle 'zerowidth/vim-copy-as-rtf'
 NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'nsf/gocode'
 
-NeoBundle 'vim-syntastic/syntastic'
+" NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'udalov/kotlin-vim'
 
 " Docker
 NeoBundle 'ekalinin/Dockerfile.vim'
@@ -157,7 +167,6 @@ set clipboard+=unnamed
 " 自動cw
 autocmd QuickFixCmdPost *grep* cwindow
 
-
 """"""""""""""""""""""""""""""""""""""""独自キーバインド"""""""""""""""""""""""
   noremap <Up> <Nop>
   noremap <Down> <Nop>
@@ -193,3 +202,5 @@ autocmd QuickFixCmdPost *grep* cwindow
   imap ( ()<C-h>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+autocmd FileType python setlocal completeopt-=preview
